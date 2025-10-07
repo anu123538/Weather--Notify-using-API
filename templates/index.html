@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Embedded Custom CSS -->
+  <style>
+    body {
+      background: linear-gradient(to right, #66044e, #5a032c);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 10px;
+    }
+
+    .weather-card {
+      background: #7bb7d3;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 60%;
+      padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .weather-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      color: #161718;
+      font-weight: 600;
+    }
+
+    .input-group input {
+      border-radius: 8px 0 0 8px;
+    }
+
+    .input-group .btn {
+      border-radius: 0 8px 8px 0;
+    }
+
+    .result img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .result h3 {
+      font-size: 2.5rem;
+      color: #111111;
+    }
+
+    .result p {
+      font-size: 1.1rem;
+      margin: 0.3rem 0;
+    }
+
+    .alert {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="weather-card mx-auto">
+    <!-- Weather-themed banner image -->
+    <img src="https://images.unsplash.com/photo-1501973801540-537f08ccae7b?auto=format&fit=crop&w=1050&q=80" alt="Weather Banner" class="weather-image" />
+
+    <h2 class="text-center mb-4">🌦️ Weather Checker</h2>
+    
+    <form action="/" method="POST">
+      <div class="input-group mb-3">
+        <input type="text" name="city" class="form-control" placeholder="Enter city name" required>
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </form>
+
+    {% if weather %}
+    <div class="result text-center mt-4">
+      <h4>{{ weather.city }}, {{ weather.country }}</h4>
+      <img src="{{ weather.icon_url }}" alt="Weather Icon">
+      <h3>{{ weather.temp }}°C</h3>
+      <p class="text-muted">{{ weather.description | title }}</p>
+      <p><strong>Feels like:</strong> {{ weather.feels_like }}°C</p>
+      <p><strong>Humidity:</strong> {{ weather.humidity }}%</p>
+      <p><strong>Wind Speed:</strong> {{ weather.wind_speed }} m/s</p>
+    </div>
+    {% elif error %}
+    <div class="alert alert-danger text-center mt-3">{{ error }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
