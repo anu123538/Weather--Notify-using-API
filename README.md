@@ -2,10 +2,17 @@
 
 A simple weather checker built using Flask and OpenWeatherMap API.
 
-## Features
-- Enter any city to get current weather
-- Displays temperature, humidity, wind, and condition icon
-- Styled with Bootstrap and a banner image
+## FeaturesGot it! You want to add a **description in your README.md** (or somewhere in your project) explaining **where to get the Weather API key** (like OpenWeatherMap), so anyone who uses your project knows how to set it up.
+
+Here's a **simple example snippet** you can add to your README.md or instructions file:
+
+---
+
+## How to Get Your Weather API Key
+
+This project uses the **OpenWeatherMap API** to fetch weather data.
+
+
 
 ## How to Run
 1. Install dependencies:
