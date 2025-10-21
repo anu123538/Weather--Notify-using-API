@@ -1,0 +1,19 @@
+body {
+    background: linear-gradient(to bottom right, #87ceeb, #f0f8ff);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    border-radius: 15px;
+    background-color: #ffffffdd;
+}
+
+.result img {
+    width: 80px;
+    height: 80px;
+}
+
+h2 {
+    color: #007bff;
+}
